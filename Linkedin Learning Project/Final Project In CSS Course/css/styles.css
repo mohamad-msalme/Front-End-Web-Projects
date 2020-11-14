@@ -1,0 +1,249 @@
+/************* Colors-List **************
+https://coolors.co/f7fff7-343434-2f3061-ffe66d-a1c6d7
+--> Colors
+1- #F7FFF7   mint cream 
+2- #343434   jet/ Dak Black 
+3- #2F3061   space cadet
+4- #FFE66D   naples Yellow
+5- #A1C6D7   pale cerulean 
+*********************************************/
+
+/****** Font Familt ***********/*
+.serif {
+  font-family: Times, "Times New Roman", Georgia, serif;
+}
+
+.sansserif {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.monospace {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+
+.emoji {
+  font-family: emoji;
+}
+
+.math {
+  font-family: math;
+}
+
+.fangsong {
+  font-family: fangsong;
+}
+
+
+
+/***********************************
+/***********************************
+************************************
+************************************
+
+/****** Reset Default CSS *****
+******************************/
+h2, h1	{ 
+	margin: 0;
+	font-family: 'Caveat', cursive;
+	font-weight: 400;
+	
+}
+
+
+
+html { box-sizing: border-box; }
+*, *:after, *:before {box-sizing: inherit;}
+
+
+/* Global Styles 
+***************************/
+
+body {
+	color: #343434;
+	margin: 0;
+	font: normal 15px/1.5 'Montserrat', sans-serif;
+	
+}
+.content-wrap {
+	max-width: 800px;
+	width: 85%;
+	margin: 0 auto;	
+	padding: 60px 0;
+}
+img     { width: 300px;  }
+a       { color: #FFE66D;}
+a:hover {text-decoration: none;}
+h2 		{ font-size : 3em; }
+
+.item-details h3      {margin-bottom: 0;}
+.item-details h3 + p  { font-style: italic; }
+.item-details h3 ~ p  { margin: 0; }
+.divider section  {
+	border-bottom: 1px dashed #333;
+	padding: 25px 0 ;
+}
+
+.divider section:last-of-type { 
+	border-bottom: none;
+	}
+
+ 
+
+/* profile 
+*******************************/
+header {
+	background-color: #2F3061;
+	color: #F7FFF7; 
+ 	text-align: center;
+
+ }
+h1 { 
+	font-size : 6.6em;
+	line-height: 1;
+	}
+
+/* Projects 
+****************************/
+.projects            { background-color: #F7FFF7; }
+.projects a          { color: #2F3061;}  
+.projects .btn:hover { opacity: 0.8;  } /*transparent */ 
+.projects .btn {
+	color: #F7FFF7;
+	background-color: #2F3061;
+	text-decoration: none;
+	padding: 8px;
+	font-size: 1.1em;
+	border-radius: 5px;
+	display: block; 
+	margin-bottom: 10px;
+	width: 100%;
+	text-align: center;
+
+}
+
+.project-item .right
+ {
+	width: 48%;
+	float: right;
+}
+.project-item .right > h3 {
+	text-align: center;
+}
+.project-item.clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+.project-item img {
+	width: 50%;
+	float: left;
+	margin-right: 10px;
+}
+/* Work-Experence
+************************/
+.work-experience 	{ background-color: #A1C6D7;  }
+
+/* grid container */
+.job-item { 
+	display: grid;
+	grid-template-columns: 1fr 2fr; 
+	border-bottom: 1px dashed #333;
+	grid-gap: 10px 10px ;
+}
+/* child grid container */ 
+.job-item .job-details { text-align: center; }
+.job-item .job-summary { padding-left: 10px; }
+.job-item:last-child   {border-bottom: none; }
+
+/* Education 
+*******************************/
+.education
+{
+	background-image: url("../images/joanna-kosinska-unsplash.jpg");
+	background-repeat: no-repeat;
+	background-position: 82% 25%	;
+	background-size: cover;
+	padding-bottom: 100px;
+}
+.education p 
+{
+	width: 60%;
+}
+
+.education #special { margin-bottom: 0; }
+
+ /* Contact-Info
+ *****************************/
+ footer { 
+ 	background-color: #343434;
+ 	color: #F7FFF7;
+ 	text-align: center;
+ }
+ .contact-list { 
+	margin-bottom: 0;
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	 }
+.contact-list a {
+	padding: 15px;
+	display: block;
+}
+
+
+/* Responsive
+*******************************/
+@media screen and (max-width: 750px)
+{
+	.project-item img {
+		float: none;
+		width: 100%;
+		}
+	 h3,
+	 h2,
+	 .work-experience h2 + p 
+	   {
+		text-align: center;
+	}
+	.projects .btn {
+	
+	display: block; 
+	margin-top: 10px; 
+	text-align: center;
+}
+.content-wrap { 
+	
+	padding: 30px 0;
+}
+
+.job-item { 
+	display: grid;
+	grid-template-columns: 1fr; 
+	border-bottom: 1px dashed #333;
+	grid-gap: 10px ;
+}
+.contact-list  {
+	
+	display: block;
+}
+
+.contact-list a {
+	padding: 5px;
+	text-decoration: none;
+	
+}
+.project-item .right {
+	width: 100%;
+	float: none;
+}
+
+}
