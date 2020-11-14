@@ -1,0 +1,80 @@
+
+/* Table */ 
+table
+{
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 10px auto;
+}
+/* table Header */ 
+
+thead
+{
+  text-transform: uppercase;
+  color: #fff ;/* white */ 
+  background-color: #365870;
+  font-size: 11px;
+  
+
+}
+thead > tr th:first-child
+{
+  text-align: left;
+}
+
+td,
+th
+{
+  padding: 10px 15px ;
+}
+
+td
+{
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child
+{
+  border-left: 1px solid #cecfd5;
+  font-size: 12px;
+}
+.book-title
+{
+  display: block;
+  color: #395870;
+  font-size: 14px;
+}
+.Qty,
+.avalibity
+{
+  text-align: center;
+}
+.price
+{
+  text-align: right;
+}
+tfoot
+{
+  text-align: right; 
+  font-size: 12px;
+}
+.multiple-line
+{
+  display: block;
+    font-size: 12px;
+
+}
+
+tbody tr:nth-child(even)
+{
+  background: #f0f0f2;
+}
+tfoot > tr:last-child td
+{
+    background: #f0f0f2;
+    font-weight: bold;
+      font-size: 14px;
+
+}

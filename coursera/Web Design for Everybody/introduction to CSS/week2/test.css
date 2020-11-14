@@ -1,0 +1,54 @@
+
+
+
+*,
+*:before,
+*:after
+{
+	-moz-box-sizing: border-box;
+}
+body
+{
+	width: 90%;
+	margin: 10px auto;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+
+
+header, section, footer
+{
+	border: 1px solid black;
+	background-color: green;
+	margin: 10px auto;
+	border-radius: 10px;
+	text-align: center;
+	height: 50px;
+	padding: 10px;
+}
+
+.group:before,
+.group:after
+{
+	content: "";
+	display: table;
+}
+.group:after
+{
+	clear: both;
+}
+.group
+{
+	clear: both;
+}
+
+section
+{
+	float: right;
+	width: 30%;
+	margin: 0 1.5% 10px 0;
+}
+
+
+

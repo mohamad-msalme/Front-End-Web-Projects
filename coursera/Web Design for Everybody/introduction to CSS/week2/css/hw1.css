@@ -1,0 +1,377 @@
+/*
+/
+/
+/
+/
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+
+
+   Default style sheet 
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-spacing: 10px;
+}
+
+
+/*
+	Make all box as border-box 
+	
+	Grid section 
+*/
+*,
+*:before,
+*:after
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+/************************************************************
+*************************************************************
+************ Start Style teams page *************************
+*************************************************************
+*************************************************************
+*/
+
+
+table
+{
+	width: 90%;
+	margin: 10px auto;
+	border-collapse: separate;
+	border-spacing: 2px;
+	font-size: 16px;
+	font-family:  Arial, serif;
+	line-height: 2;
+	height: 100vh;
+}
+
+th
+{
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px 5px 0 0 ;
+	border: 1px solid #b1e053;
+	border-bottom: 3px solid #b1e053;
+	text-align: center;
+	background-image: linear-gradient(#92aa5a, #929a49);
+}
+
+ th:first-child
+{
+	text-align: left;
+}
+
+tr:not(:first-child)/* change background-color for all row exept the first row */
+{
+	background-color: #e4f5d4;
+	opacity: 1;
+}
+
+th,
+td
+{
+	padding: 10px;
+}
+
+td
+{
+	text-decoration: none;
+	text-align: center;
+	color: #848484;
+	font-weight: 700;
+	vertical-align: middle;
+}
+
+td:first-child
+{
+	text-align: left;
+}
+
+tr:not(:first-child):hover
+{
+	opacity: 0.7;
+}
+
+/************************************************************
+*************************************************************
+************ End Style teams page ***************************
+*************************************************************
+*************************************************************
+*/
+
+
+
+/*
+*************************************************************
+**** Start Style Home Page **********************************
+*************************************************************
+*************************************************************
+*/
+
+/*
+*********************************
+*********style Body**************
+*********************************
+*/
+body
+{
+	width: 90%;
+	margin: 0 auto; /* make it center*/
+	padding: 10px;
+}
+
+/*
+*********************************
+***** Style Header container ****
+*********************************
+*/
+header
+{
+
+	background-image: linear-gradient(right, #128745, #369842) ;/*gray*/
+	padding:10px 0px 39px;/*top left&right bottom*/
+	margin: 20px auto 0px;/*top left&right bottom*/
+	background-image: url("flywheel.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: padding-bottom 1s;/*this select properet padding
+									to go down*/
+}
+
+ header:hover
+ {
+ 	padding-bottom: 80px;/*how much pixel you want 
+ 						 when you put cursor on background-image*/ 
+ }
+
+
+header h1:first-child 
+{
+	color: #fff; /* white*/
+	font-size: 200%;
+	font-family:  "Palatino Linotype", "Book Antiqua", Palatino, serif ;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 20px auto 25px;/*top left&right bottom*/
+}
+
+nav
+{
+	padding-left: 50px;
+
+}
+
+header nav > a
+{
+	color: #000;   /*black*/
+	font-size: 22px;
+	display: inline-block;
+	width: 20%;
+	height: 50px;
+	padding: 10px;/*all side */
+	margin-right: 50px;
+	margin-top: 10px;
+	border-radius: 10px;
+	text-decoration: none;
+	background-color: rgba(237, 242, 244, 0.31);
+	text-align: center;
+	transition-property: : width, background-color, color, border-radius ;
+	transition-duration: 1s;
+	transition-delay: 1s;
+}
+
+
+a.active
+{
+	color: blue;
+	background-color: white;
+
+}
+
+header nav > a:hover
+{
+	background-color: rgb(125,125,125,0.7);
+	text-decoration: underline overline;
+	color: #000;   /*black*/
+	border-radius: 20px;
+	width: 15%;	
+
+}
+/*
+**********************************
+***** Style Section container ****
+**********************************
+*/
+
+
+/*
+  ========================================
+  Clearfix
+  it is for clear any element around 
+  main that consist of aside and section 
+  we just add class named group into main 
+  ========================================
+*/
+
+
+
+/* its add before and after main content 
+	that have nothing and displaied as table 
+	that is meaning displaied as block level 
+*/
+.group:before,
+.group:after
+{
+	content: "";
+	display: table;
+}
+
+/* here we ask browser to dont wrap any thing
+	after and over main that have class group 
+*/
+
+.group:after
+{
+	clear: both;
+}
+
+.group
+{
+	clear: both;
+}
+
+/*
+  ========================================
+  End Clearfix
+  ========================================
+*/
+.right
+{
+	background-color: rgb(255, 255, 255);/*gray*/
+	padding-bottom: 10px;
+	float: right;
+	width: 64%;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.right h2
+{
+	color: #000;
+	font-size: 2.2em;
+	font-family: Georgia, serif;
+	font-weight: lighter;
+}
+.right p
+{
+	font-size: 125%;
+	margin: 20px 0px 20px; /*top left&right bottom*/
+}
+
+
+/***************************
+******* Style Aside ********
+****************************
+*/
+img
+{
+	width: 80%;
+	display: block;
+	margin: 30px auto;
+	border: 3px outset black;
+}
+
+.left
+{
+	float: left;
+	width: 35%;
+	padding: 10px;
+	background-color: #777613;
+}
+
+/************************************************************
+*************************************************************
+************ End Style Home Page ****************************
+*************************************************************
+*************************************************************
+*/ 
+
+
+
+
+
+/************************************************************
+*************************************************************
+************ Start Style History page ***********************
+*************************************************************
+*************************************************************
+*/
+
+.right ul 
+{
+	padding: 25px 0px 0px 25px ;
+	list-style-type: disc;
+}
+.right ul > li a
+{
+	color: #54198b;
+}
+
+/************************************************************
+*************************************************************
+************ End Style History page *************************
+*************************************************************
+*************************************************************
+*/
+
+
+
+
+
+

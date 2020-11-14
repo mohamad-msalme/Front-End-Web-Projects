@@ -1,0 +1,227 @@
+/*
+/
+/
+/
+/
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+*,
+*:before,
+*:after
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+body
+{
+	background-color: #B3B3B3;
+	width: 1200px;
+	margin: 10px auto;
+	padding: 10px;
+	
+	
+}
+
+header
+{
+	background-color: #00b7ea;
+	padding: 10px;
+	margin: 0 auto;
+	border-radius: 25px;
+
+}
+header > h1
+{
+	color: white;
+	font-family: "Times New Roman",arial;
+	font-size: 250%;
+	text-align: center;
+}
+nav
+{
+	margin: 15px auto;
+	text-align: center;
+
+	
+}
+nav > a
+{
+
+	
+	font-family: Arial;
+	font-variant: small-caps;
+	font-size: 30px;
+	background-color: white;
+	border-radius: 10px;
+	display: inline-block;
+	width: 250px;
+	height: 50px;
+	padding: 5px;
+
+}
+
+
+details > p
+{
+
+	font-style: italic;
+	font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-left: 25px;
+}
+
+details > summary
+{
+		font-size: 25px;
+		margin: 15px;
+
+}
+
+footer
+{
+	background-color: #00b7ea;
+	clear: both;
+	height: 100px;
+	margin-top: 30px;
+
+}
+
+
+#favorite-foods
+{
+	margin: 30px auto ;
+	float: left;
+
+
+}
+#achievements
+{
+	width: 47%;
+	float: right;
+	margin: 30px auto;
+}
+
+#favorite-foods h2, #achievements h2{
+	background-color: #00b7ea;
+	color: #666666;
+	font-size: 30px;
+	font-family: "Times New Roman",arial;
+	width:550px;
+}
+
+#more-about-me h2
+{
+	background-color: #00b7ea;
+	color: #666666;
+	font-size: 30px;
+	font-family: "Times New Roman",arial;
+	
+
+}
+img
+{
+	width: 75px;
+	float: left;
+
+}
+
+footer > p 
+{
+	font-size: 20px;
+	width: 90%;
+	margin-left: 80px;
+
+}
+#more-about-me
+{
+	clear: both;
+	margin-top: 30px ;
+	margin-bottom: 10px;
+}
+
+
+ul
+{
+	list-style-type: square;
+	margin: 10px auto;
+	font-size: 20px;
+	padding-left: 33px;
+}
+h2 + p
+{
+	font-size: 20px;
+	margin: 10px auto;
+	width: 600px;
+}
+header, footer{
+	background: #666666;
+background: linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);		border-radius: 25px;
+
+
+}
+a:link
+{
+
+}
+a:visited
+{
+
+}
+a:hover
+{
+	color: red;
+   background: -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
+
+
