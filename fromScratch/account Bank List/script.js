@@ -131,30 +131,22 @@ const currencies = new Map([
 
 const view = {
 
-  viewMvments:( currAcc, sort = 'on')=> {
-    containerMovements.innerHTML ='';
+  viewMvments:( acc, sort = 'on')=> {
+    // remove all movs on screen 
+    containerMovements.innerHTML = "";
+    let stack = acc.copyMovsAndDates.slice();
     //function to create aray contains array of pairs of movs & date
-    let map = (function() {
-      let copyMovsAndDates = new Map();
-
-      for (let i = 0; i < currAcc.movements.length; i++) 
-        copyMovsAndDates
-        .set(model.calcPassedDays(currAcc.movementsDates[i]), currAcc.movements[i]
-        .toFixed(2));
-
-      return [...copyMovsAndDates];
-    }());
     // sort Movs With Dates 
     if( sort === 'off'){ 
-      map = map.sort( (a, b) => a[movAmunt = 1] -b[movAmunt = 1] );
+      stack.sort( (a, b) => a[movAmunt = 1] -b[movAmunt = 1]);
     }
     //display Movs 
-    map.forEach((mov, i) => {
+    stack.forEach((mov, i) => {
       const type = mov[movAmunt = 1] > 0 ? 'deposit' : 'withdrawal';
       const html =`
         <div class="movements__row">
           <div class="movements__type movements__type--${type}">${ i + 1} ${type}</div>
-          <div class="movements__date">${mov[0]}</div>
+          <div class="movements__date">${model.calcPassedDays(mov[0])}</div>
           <div class="movements__value">${model.formatNumber(mov[movAmunt = 1])}</div>
         </div>`;
       containerMovements.insertAdjacentHTML('afterbegin', html);  
@@ -227,7 +219,6 @@ const model = {
   login : function(currAcclogIndx){
     this.currentAccountIndx = currAcclogIndx;
     this.currAcc = accounts[this.currentAccountIndx];
-
     if(containerApp.style.opacity) {//Second Login
       view.viewMessageWelcom(``);
       clearInterval(this.timerState)
@@ -257,9 +248,11 @@ const model = {
   transferMoney: function(transAccIndx, amount){
     this.currAcc.movements.push(-1*amount);
     this.currAcc.movementsDates.push(Date.now());
-    
+    this.currAcc.copyMovsAndDates.push([Date.now(), -1*amount])
+
     accounts[transAccIndx].movements.push(amount);
     accounts[transAccIndx].movementsDates.push(Date.now());
+    accounts[transAccIndx].copyMovsAndDates.push([Date.now(), amount]);
 
     view.updateUserInreface(this.currAcc);
   },
@@ -289,8 +282,11 @@ const model = {
   loanMoney: function(loanAmount){
     this.currAcc.movements.push(Math.floor(loanAmount));
     this.currAcc.movementsDates.push(Date.now());
+    this.currAcc.copyMovsAndDates.push([Date.now(), Math.floor(loanAmount)])
+
     inputLoanAmount.value = '';
-    setTimeout(view.updateUserInreface.bind(view),3000,(this.currAcc));
+    setTimeout(view.updateUserInreface.bind(view, this.currAcc),3000);
+
   },
   
   sortMovs: function(e){
@@ -363,7 +359,7 @@ const model = {
 const contrller = {
   
   init:()=>{
-    contrller.createNammes();
+    contrller.initAccount();
     btnLogin.addEventListener   ('click', contrller.checkValidlogin);
     btnTransfer.addEventListener('click', model.checkValidTranfer.bind(model));
     btnClose.addEventListener   ('click', model.checkValidCloseAcc.bind(model));
@@ -371,14 +367,25 @@ const contrller = {
     btnLoan.addEventListener    ('click', model.checkLoan.bind(model));  
   },
   
-  createNammes:()=>{
-    accounts.forEach( acc => 
+  initAccount:()=>{
+    accounts.forEach( acc => {
       acc.userName = acc.owner
-        .toLowerCase()
-        .split(" ")
-        .map( word => word[0])
-        .join("")); 
+      .toLowerCase()
+      .split(" ")
+      .map( word => word[0])
+      .join(""); 
+
+      acc.copyMovsAndDates = new Map();
+
+      acc.movements
+      .forEach( (mov, i)=> {
+        acc.copyMovsAndDates
+          .set(acc.movementsDates[i], mov.toFixed(2))
+        })
+        acc.copyMovsAndDates = [...acc.copyMovsAndDates];
+      })     
   },
+ 
 
   checkValidlogin :function(e){
     e.preventDefault();
@@ -398,61 +405,3 @@ const contrller = {
 window.onload = contrller.init;
 
 
-/*
-////////code Challenge4 
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] }
-];
-// 1
-const calcRecommendedFood = ()=> 
-  dogs.forEach( dog =>{
-    let i = Math.floor(dog.weight**0.75*28)
-    if( i > dog.curFood*1.1 )
-      dog.recommendedFood = 'Eating Too Much';
-    else if( i < dog.curFood - dog.curFood*0.1 )
-      dog.recommendedFood = `Eating Too little `;
-    else 
-      dog.recommendedFood = `Eating an okay amount`;
-  });
-calcRecommendedFood();
-
-// 2
-const findRecoFood = (ownerNAme)=> dogs.forEach(dog=> dog.owners.includes(ownerNAme) ? console.log(dog.recommendedFood):0);
-findRecoFood('Sarah');
-// 3 + 4 
-const filterOwnersDogs = ()=>{
-  let ownersEatTooMuch   = [],
-      ownersEatTooLittle = [];
-  dogs.forEach( dog =>{
-    Object.values(dog)
-      .includes(`Eating Too Much`)?
-        ownersEatTooMuch.push(...dog.owners)
-        :
-        ownersEatTooLittle.push(...dog.owners);
-  })
-  result1 = ownersEatTooMuch
-    .reduce( (acc,v,i,a) => 
-      i !== a.length -1? 
-        acc += `${v} and ` 
-        : acc += `${v}'s dogs Eating Too Much!`, acc = '');
-  result2 = ownersEatTooLittle
-  .reduce( (acc,v,i,a) => 
-    i !== a.length -1? 
-      acc += `${v} and ` 
-      : acc += `${v}'s dogs Eating Too little!`, acc = '');
-  console.log(result1);
-  console.log(result2); 
-}
-filterOwnersDogs();
-///5
-const checkExactly = ()=> dogs.some((v,_,dog)=> [...(new Set(Object.values(dog)))].length !== Object.values(dog).length );
-const checkOkayAmnt = ()=> dogs.some( dog => Object.values(dog).includes(`Eating an okay amount`))
-const array12 = dogs.reduce( )
-console.log(checkExactly());
-console.log(checkOkayAmnt());
-
-*/
-//function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); } 
