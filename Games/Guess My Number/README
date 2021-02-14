@@ -1,11 +1,10 @@
 /*
 GAME RULES:
 
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 50 points on GLOBAL score wins the game
-- You can change max Points between 1---> 50 by Win Points 
-
+- the Game have Secrete Number between 1 ---> 20
+- player Enter Number and press Check if it is greater than 20 or smaller than 1 then we ignore the input 
+- if player's Number is gerter than secret Numbe or smaller then game will inform you "Too Height" or " Too Low"
+- the game End when player Guess Number 
+- you can play again by press play again button 
+- game will keep with heighScore 
 */
